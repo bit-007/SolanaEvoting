@@ -1,0 +1,241 @@
+{
+  "test-wallet-1747494427431": {
+    "id": "test-wallet-1747494427431",
+    "name": "Test Voter",
+    "email": "test@example.com",
+    "dateOfBirth": "1990-01-01",
+    "walletAddress": "test-wallet-1747494427431",
+    "verificationKey": "66a525b636c356019c4cbbc49a5dc94e2cb275f94f2be1fcfa149c4f7b0cbec6",
+    "registeredAt": 1747494427495,
+    "eligibilityChecked": true,
+    "isEligible": true,
+    "votingHistory": {}
+  },
+  "test-wallet-1747499347896": {
+    "id": "test-wallet-1747499347896",
+    "name": "Test Voter",
+    "email": "test@example.com",
+    "dateOfBirth": "1990-01-01",
+    "walletAddress": "test-wallet-1747499347896",
+    "verificationKey": "48ae363bbca376b6688f2d079b2d5d1e34a3bea4873bafac1a6a994e3abcffbf",
+    "registeredAt": 1747499347968,
+    "eligibilityChecked": true,
+    "isEligible": true,
+    "votingHistory": {}
+  },
+  "test-wallet-1747499384965": {
+    "id": "test-wallet-1747499384965",
+    "name": "Test Voter",
+    "email": "test@example.com",
+    "dateOfBirth": "1990-01-01",
+    "walletAddress": "test-wallet-1747499384965",
+    "verificationKey": "ee27798c98a8cbbdb048c57c60bee44b5dbb28f2661e72d4bae3dae4ca06aa31",
+    "registeredAt": 1747499384986,
+    "eligibilityChecked": true,
+    "isEligible": true,
+    "votingHistory": {}
+  },
+  "test-wallet-1747499400052": {
+    "id": "test-wallet-1747499400052",
+    "name": "Test Voter",
+    "email": "test@example.com",
+    "dateOfBirth": "1990-01-01",
+    "walletAddress": "test-wallet-1747499400052",
+    "verificationKey": "13a26ad398007877f510407a3ff37eb6fa509e6c3bfc16cf811554e0ccd88af8",
+    "registeredAt": 1747499400097,
+    "eligibilityChecked": true,
+    "isEligible": true,
+    "votingHistory": {}
+  },
+  "test-wallet-1747499691559": {
+    "id": "test-wallet-1747499691559",
+    "name": "Test Voter",
+    "email": "test@example.com",
+    "dateOfBirth": "1990-01-01",
+    "walletAddress": "test-wallet-1747499691559",
+    "verificationKey": "032d7dcce6d0ef2761b137228bfb5c6893b5383c18feaf382097cb062fa5255a",
+    "registeredAt": 1747499691603,
+    "eligibilityChecked": true,
+    "isEligible": true,
+    "votingHistory": {
+      "GKTr632PgxztBanZCtaDsEozj6SV4MUtX4AV29FcvcSB": {
+        "votedAt": 1747499701603,
+        "verificationHash": "39522d881e6b9823d87c5cea6c69fb3d35de744e247f279543316285c0007f03"
+      }
+    }
+  },
+  "test-wallet-1747499850610": {
+    "id": "test-wallet-1747499850610",
+    "name": "Test Voter",
+    "email": "test@example.com",
+    "dateOfBirth": "1990-01-01",
+    "walletAddress": "test-wallet-1747499850610",
+    "verificationKey": "20c702025e09b628c47d180efbcc69884880cf7838fff38ce447545d237752bd",
+    "registeredAt": 1747499850648,
+    "eligibilityChecked": true,
+    "isEligible": true,
+    "votingHistory": {}
+  },
+  "3mtBCXemCHNV5ekPBVVJXP3tEAy9VRNSYkxLLrL665tS": {
+    "id": "3mtBCXemCHNV5ekPBVVJXP3tEAy9VRNSYkxLLrL665tS",
+    "name": "Nitya Reddy",
+    "email": "nityareddy164@gmail.com",
+    "dateOfBirth": "2004-04-16",
+    "walletAddress": "3mtBCXemCHNV5ekPBVVJXP3tEAy9VRNSYkxLLrL665tS",
+    "verificationKey": "828b5350a4f35253c6447633e672e573f8f94d962b5f04637c5442a096b5e97d",
+    "registeredAt": 1747500823574,
+    "eligibilityChecked": true,
+    "isEligible": true,
+    "votingHistory": {
+      "8V9SbK4F9zvQ4cXwfSwfhnuhS9xfWmEp4BdoTWNK9p91": {
+        "votedAt": 1747539738009,
+        "verificationHash": "93e1521e5dacf4cda8c5ef4f974c2705229a8b9a1ac03c4f135cd4afb33e19eb"
+      },
+      "x1SC7K3jsnqsXUMHMyfiEDCPvUufAkRmgETpyTcwxQE": {
+        "votedAt": 1747540110932,
+        "verificationHash": "a25b2e35e90be7d372350679c73689526992ba1ca7cbbd49be602c66f9615efa"
+      },
+      "9uS8TBFVcdT34qYv3PFza1g5sRzm1TUeBTX297ejsg1T": {
+        "votedAt": 1747540952348,
+        "verificationHash": "48c6c8b282008cc0f257de547da144bb238e234e6e0a15cb101b3436d7a36e12"
+      },
+      "AcHoa3vS4uaFVv58BaudqXHtCXx4CjNemUHuu1pvCCQt": {
+        "votedAt": 1747628299441,
+        "verificationHash": "70eb4e780592b1448e0e8717e79a7866747c2821575e8450844af6b286554c12"
+      },
+      "7Wxe2kqsHt5g35Da2jjZBNhUqmL5c1aNjr3EawxNDNwX": {
+        "votedAt": 1747629374670,
+        "verificationHash": "69505d43f4a08eb9213154492d8ec977cfb1b7148a3a4030d08fef4e81d2f8fc"
+      },
+      "9eR68Ad64P5sGGodQCzrTW4Wpmk8kYHUcAaZHehmu4DT": {
+        "votedAt": 1747629973429,
+        "verificationHash": "35ac41e6fbd0a90f55e89d161e1f080a55fef61d9ff55b9867b04b3c5dc30461"
+      },
+      "EQbTq9FhXc5qmPc3dRRZCmobD9KJeTknvrwSKmJSj3oC": {
+        "votedAt": 1747646240554,
+        "verificationHash": "94f3173daa80b5189f21f12640d2cd9297d49f9edf6ff83e10a2187cae9204f8"
+      },
+      "4WeZA181sqbA8U2kBErub8PB59YChAchjGdiEyZGkkTh": {
+        "votedAt": 1747647314819,
+        "verificationHash": "08ba3b09f5ebe1b087c8461192072a9317e410144fcb099162c8ea68f5aa309b"
+      },
+      "4zNhT2VDuV7NBxUn1fSnCce3cAoeebP1nPcfseH3cE3Q": {
+        "votedAt": 1747665026963,
+        "verificationHash": "73fdc8e7d72b3bb1077655f1dd0edfabb436a2b9dc242cbdc0fb7c550d7fa0fa"
+      },
+      "5WeD4f7tYGSC6ZU5qcZWnfsrPeU6nq5qvtSUcSCeMCyY": {
+        "votedAt": 1747665200600,
+        "verificationHash": "b75ce27873026a4ec0958de9d9b56d3c8a5722863ad9ffa00666725ed75c10fd"
+      },
+      "3PA1JECZL4T8vyRwn2NYenx5xJB48RFhZusAnDw4efL4": {
+        "votedAt": 1747665906278,
+        "verificationHash": "d537d7cbafbc1600e8f9e63cb450f79fa6cbbc8f1ff8425177f119419d3ab409"
+      },
+      "7c8QKWuPC9QmLgiMuZfPUYCL6WjBp2S7gEptSTEyrfoo": {
+        "votedAt": 1747734217013,
+        "verificationHash": "f5597fcbc4c7f416676de3886b93c9886d3399d195c2e8ed23b2ae8832902b5d"
+      }
+    }
+  },
+  "test-wallet-1747501442319": {
+    "id": "test-wallet-1747501442319",
+    "name": "Test Voter",
+    "email": "test@example.com",
+    "dateOfBirth": "1990-01-01",
+    "walletAddress": "test-wallet-1747501442319",
+    "verificationKey": "650275a70333f68e6281fa42eab3ffc08bcbe6821f0d681b6e4ce534f76c1f02",
+    "registeredAt": 1747501442358,
+    "eligibilityChecked": true,
+    "isEligible": true,
+    "votingHistory": {}
+  },
+  "test-wallet-1747532626399": {
+    "id": "test-wallet-1747532626399",
+    "name": "Test Voter",
+    "email": "test@example.com",
+    "dateOfBirth": "1990-01-01",
+    "walletAddress": "test-wallet-1747532626399",
+    "verificationKey": "ba999951b02e3420a83d159c5ab60b4c0316a322127e247b7848fe8107ee675f",
+    "registeredAt": 1747532626446,
+    "eligibilityChecked": true,
+    "isEligible": true,
+    "votingHistory": {}
+  },
+  "test-wallet-1747533347224": {
+    "id": "test-wallet-1747533347224",
+    "name": "Test Voter",
+    "email": "test@example.com",
+    "dateOfBirth": "1990-01-01",
+    "walletAddress": "test-wallet-1747533347224",
+    "verificationKey": "c5d16910e3c92e5e6944bff35cdbfa343176809a7bd1d3086f3e3a5f2344f027",
+    "registeredAt": 1747533347252,
+    "eligibilityChecked": true,
+    "isEligible": true,
+    "votingHistory": {}
+  },
+  "test-wallet-1747534200357": {
+    "id": "test-wallet-1747534200357",
+    "name": "Test Voter",
+    "email": "test@example.com",
+    "dateOfBirth": "1990-01-01",
+    "walletAddress": "test-wallet-1747534200357",
+    "verificationKey": "06be2a671b5897c49b8f62148b0fa690dbc56e26a3908fa89f1ca28342bc1049",
+    "registeredAt": 1747534200380,
+    "eligibilityChecked": true,
+    "isEligible": true,
+    "votingHistory": {}
+  },
+  "test-wallet-1747534729194": {
+    "id": "test-wallet-1747534729194",
+    "name": "Test Voter",
+    "email": "test@example.com",
+    "dateOfBirth": "1990-01-01",
+    "walletAddress": "test-wallet-1747534729194",
+    "verificationKey": "36c941024ccf43e2cdd65bc0b414265db884dea72b6c7c98f39032a34db68000",
+    "registeredAt": 1747534729233,
+    "eligibilityChecked": true,
+    "isEligible": true,
+    "votingHistory": {}
+  },
+  "test-wallet-1747537860813": {
+    "id": "test-wallet-1747537860813",
+    "name": "Test Voter",
+    "email": "test@example.com",
+    "dateOfBirth": "1990-01-01",
+    "walletAddress": "test-wallet-1747537860813",
+    "verificationKey": "07d2659acf8f84f8adc6dfb16ad131943ae9b8283eb31b7d698f679d745c1f50",
+    "registeredAt": 1747537860854,
+    "eligibilityChecked": true,
+    "isEligible": true,
+    "votingHistory": {}
+  },
+  "test-wallet-1747537954095": {
+    "id": "test-wallet-1747537954095",
+    "name": "Test Voter",
+    "email": "test@example.com",
+    "dateOfBirth": "1990-01-01",
+    "walletAddress": "test-wallet-1747537954095",
+    "verificationKey": "7a3203f86691491314acca8d0da2da8eae783288749377ce8c4fb0ba42990731",
+    "registeredAt": 1747537954127,
+    "eligibilityChecked": true,
+    "isEligible": true,
+    "votingHistory": {}
+  },
+  "test-wallet-1747539541692": {
+    "id": "test-wallet-1747539541692",
+    "name": "Test Voter",
+    "email": "test@example.com",
+    "dateOfBirth": "1990-01-01",
+    "walletAddress": "test-wallet-1747539541692",
+    "verificationKey": "2b12b6bbc6a7e94522bf07ef570c0a5b00949431e0bce5609c2ba137be5050ae",
+    "registeredAt": 1747539541738,
+    "eligibilityChecked": true,
+    "isEligible": true,
+    "votingHistory": {
+      "722WdXZmqVgbKt76ZLRKew3FM31ZzJVC8Layma7xFALn": {
+        "votedAt": 1747539543410,
+        "verificationHash": "a0103cf01228ce689e6488594635ab66e3fb233a1a899a4e64a8fa36f8f98d46"
+      }
+    }
+  }
+}

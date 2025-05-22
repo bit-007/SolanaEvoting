@@ -1,0 +1,189 @@
+{
+  "version": "0.1.0",
+  "name": "evoting",
+  "instructions": [
+    {
+      "name": "initializeElection",
+      "accounts": [
+        {
+          "name": "election",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "electionName",
+          "type": "string"
+        },
+        {
+          "name": "candidates",
+          "type": {
+            "vec": "string"
+          }
+        },
+        {
+          "name": "startTime",
+          "type": "i64"
+        },
+        {
+          "name": "endTime",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "castVote",
+      "accounts": [
+        {
+          "name": "election",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "voter",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "voterSigner",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "candidateIndex",
+          "type": "u8"
+        },
+        {
+          "name": "verificationHash",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "endElection",
+      "accounts": [
+        {
+          "name": "election",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": false,
+          "isSigner": true
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Election",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "authority",
+            "type": "publicKey"
+          },
+          {
+            "name": "electionName",
+            "type": "string"
+          },
+          {
+            "name": "candidates",
+            "type": {
+              "vec": "string"
+            }
+          },
+          {
+            "name": "votes",
+            "type": {
+              "vec": "u32"
+            }
+          },
+          {
+            "name": "startTime",
+            "type": "i64"
+          },
+          {
+            "name": "endTime",
+            "type": "i64"
+          },
+          {
+            "name": "isActive",
+            "type": "bool"
+          },
+          {
+            "name": "totalVoters",
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Voter",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "hasVoted",
+            "type": "bool"
+          },
+          {
+            "name": "verificationHash",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "ElectionNotActive",
+      "msg": "The election is not active"
+    },
+    {
+      "code": 6001,
+      "name": "ElectionNotInProgress",
+      "msg": "The election is not in progress"
+    },
+    {
+      "code": 6002,
+      "name": "AlreadyVoted",
+      "msg": "You have already voted in this election"
+    },
+    {
+      "code": 6003,
+      "name": "InvalidCandidate",
+      "msg": "Invalid candidate index"
+    },
+    {
+      "code": 6004,
+      "name": "Unauthorized",
+      "msg": "Unauthorized to perform this action"
+    }
+  ],
+  "metadata": {
+    "address": "GbzpQsWceMHsMLzAshjft5yvqt2m2ULdCJzCErGpRWR9"
+  }
+}
