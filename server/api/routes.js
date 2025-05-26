@@ -33,6 +33,8 @@ router.post('/votes/verify', controllers.verifyVote);
 
 router.post('/dplt/recover', controllers.recoverDPLTNetwork);
 
+router.get('/admin/check/:walletAddress', controllers.checkAdminStatus);
+
 // Debug routes
 if (process.env.NODE_ENV !== 'production') {
   router.get('/debug/voters', controllers.debugGetAllVoterRecords);

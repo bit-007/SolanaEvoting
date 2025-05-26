@@ -9,11 +9,13 @@ import DPLTStatus from './components/DPLTStatus';
 import VoterRegistration from './components/VoterRegistration';
 import VoteVerification from './components/VoteVerification';
 import SideNavigation from './components/SideNavigation';
+import config from './config';
 
 function App() {
   const [connected, setConnected] = useState(false);
   const [walletAddress, setWalletAddress] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     // Check if Phantom wallet is connected on load
@@ -46,6 +48,30 @@ function App() {
     return () => window.removeEventListener('load', onLoad);
   }, []);
 
+  // Check admin status when wallet connects
+  useEffect(() => {
+    const checkAdminStatus = async () => {
+      if (connected && walletAddress) {
+        try {
+          const response = await fetch(`${config.API_URL}/admin/check/${walletAddress}`);
+          const data = await response.json();
+          
+          if (data.success) {
+            setIsAdmin(data.isAdmin);
+            console.log(`Admin status for ${walletAddress}: ${data.isAdmin}`);
+          }
+        } catch (error) {
+          console.error('Error checking admin status:', error);
+          setIsAdmin(false);
+        }
+      } else {
+        setIsAdmin(false);
+      }
+    };
+    
+    checkAdminStatus();
+  }, [connected, walletAddress]);
+
   const connectWallet = async () => {
     try {
       const { solana } = window;
@@ -73,6 +99,7 @@ function App() {
         await solana.disconnect();
         setWalletAddress('');
         setConnected(false);
+        setIsAdmin(false);
         console.log("Wallet disconnected");
       }
     } catch (error) {
@@ -106,6 +133,7 @@ function App() {
           <SideNavigation 
             walletAddress={walletAddress} 
             connected={connected}
+            isAdmin={isAdmin}
             connectWallet={connectWallet}
             disconnectWallet={disconnectWallet}
           />
@@ -117,7 +145,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home walletAddress={walletAddress} connected={connected} />} />
               <Route path="/vote" element={<Vote walletAddress={walletAddress} connected={connected} />} />
-              <Route path="/admin" element={<Admin walletAddress={walletAddress} connected={connected} />} />
+              <Route path="/admin" element={<Admin walletAddress={walletAddress} connected={connected} isAdmin={isAdmin} />} />
               <Route path="/register" element={<VoterRegistration walletAddress={walletAddress} onRegistrationComplete={() => window.location.href = '/vote'} />} />
               <Route path="/verify" element={<VoteVerification />} />
               <Route path="/dplt" element={<DPLTStatus />} />

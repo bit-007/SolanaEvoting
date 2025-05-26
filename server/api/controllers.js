@@ -5,6 +5,7 @@ const Node = require('../dplt/node');
 const Validator = require('../dplt/validator');
 const Consensus = require('../dplt/consensus');
 const voterRegistry = require('../models/Voter');
+const { isAuthorizedAdmin } = require('../config/admins');
 
 // Initialize DPLT layer
 const validators = [
@@ -220,6 +221,15 @@ const getElection = async (req, res) => {
 const endElection = async (req, res) => {
   try {
     const { id } = req.params;
+    const { authority } = req.body;
+    
+    // Check admin authorization first
+    if (!isAuthorizedAdmin(authority)) {
+      return res.status(403).json({
+        success: false,
+        error: 'Access denied. Only authorized administrators can end elections.'
+      });
+    }
     
     // End election on blockchain
     const result = await solanaClient.endElection(id);
@@ -232,7 +242,7 @@ const endElection = async (req, res) => {
     const transaction = {
       type: 'ELECTION_ENDED',
       electionId: id,
-      endedBy: req.body.authority || 'ADMIN',
+      endedBy: authority || 'ADMIN',
       timestamp: Date.now()
     };
     
@@ -896,6 +906,48 @@ const startExpirationChecker = () => {
   setInterval(checkAndEndExpiredElections, 30000);
 };
 
+const requireAdmin = (req, res, next) => {
+  const { authority } = req.body;
+  const adminAddress = req.headers['x-admin-address']; // We'll send this from frontend
+  
+  const walletAddress = authority || adminAddress;
+  
+  if (!walletAddress) {
+    return res.status(401).json({
+      success: false,
+      error: 'Admin authentication required'
+    });
+  }
+  
+  if (!isAuthorizedAdmin(walletAddress)) {
+    return res.status(403).json({
+      success: false,
+      error: 'Access denied. You are not an authorized administrator.'
+    });
+  }
+  
+  next();
+};
+
+const checkAdminStatus = (req, res) => {
+  try {
+    const { walletAddress } = req.params;
+    
+    const isAdmin = isAuthorizedAdmin(walletAddress);
+    
+    res.json({
+      success: true,
+      isAdmin,
+      walletAddress
+    });
+  } catch (error) {
+    console.error('Error checking admin status:', error);
+    res.status(500).json({ success: false, error: error.message });
+  }
+};
+
+
+
 
 module.exports = {
   createElection,
@@ -914,5 +966,7 @@ module.exports = {
   recoverDPLTNetwork,
   debugGetAllVoterRecords,
   checkAndEndExpiredElections,
-  startExpirationChecker
+  startExpirationChecker,
+  checkAdminStatus,
+  requireAdmin
 };

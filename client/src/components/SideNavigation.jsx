@@ -1,7 +1,7 @@
 // client/src/components/SideNavigation.jsx
 import { Link, useLocation } from 'react-router-dom';
 
-function SideNavigation({ walletAddress, connected, connectWallet, disconnectWallet }) {
+function SideNavigation({ walletAddress, connected, isAdmin, connectWallet, disconnectWallet }) {
   const location = useLocation();
   
   return (
@@ -30,6 +30,11 @@ function SideNavigation({ walletAddress, connected, connectWallet, disconnectWal
                 Disconnect
               </button>
             </div>
+            {isAdmin && (
+              <div className="mt-2 px-2 py-1 bg-blue-600 rounded-md text-center">
+                <span className="text-xs text-white font-medium">Administrator</span>
+              </div>
+            )}
           </div>
         ) : (
           <button 
@@ -75,7 +80,8 @@ function SideNavigation({ walletAddress, connected, connectWallet, disconnectWal
           Register
         </Link>
         
-        {connected && (
+        {/* Admin section - only show if user is admin */}
+        {connected && isAdmin && (
           <>
             <div className="nav-section">Admin</div>
             
