@@ -21,6 +21,7 @@
     "@solana/web3.js": "^1.91.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.1",
+    "elliptic": "^6.6.1",
     "express": "^4.18.2"
   },
   "devDependencies": {

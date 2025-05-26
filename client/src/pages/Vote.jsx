@@ -176,61 +176,66 @@ function Vote({ walletAddress, connected }) {
     }
   };
 
-  const handleVote = async (candidateIndex) => {
-    try {
-      if (!connected || !election?.selectedElection) {
-        alert('Please connect your wallet and select an election first.');
-        return;
-      }
+const handleVote = async (candidateIndex, useZKP = false) => {
+  try {
+    if (!connected || !election?.selectedElection) {
+      alert('Please connect your wallet and select an election first.');
+      return;
+    }
+    if (!isRegistered) {
+      alert('You must register before voting. Please complete the registration process.');
+      return;
+    }
+    
+    // Send the vote to the backend
+    setLoading(true);
+    
+    // Choose endpoint based on ZKP flag
+    const endpoint = useZKP ? `${config.API_URL}/vote/zkp` : `${config.API_URL}/vote`;
+    
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        electionId: election.selectedElection.id,
+        candidateIndex,
+        voter: walletAddress,
+        useZKP // Add this flag for ZKP endpoint
+      })
+    });
+    
+    const result = await response.json();
+    
+    if (result.success) {
+      setTxSignature(result.tx);
+      setExplorerUrl(result.explorerUrl || `https://explorer.solana.com/tx/${result.tx}?cluster=devnet`);
+      setVerificationHash(result.verificationHash);
       
-      if (!isRegistered) {
-        alert('You must register before voting. Please complete the registration process.');
-        return;
-      }
-      
-      // Send the vote to the backend
-      setLoading(true);
-      
-      const response = await fetch(`${config.API_URL}/vote`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          electionId: election.selectedElection.id,
-          candidateIndex,
-          voter: walletAddress
-        })
-      });
-      
-      const result = await response.json();
-      
-      if (result.success) {
-        setTxSignature(result.tx);
-        setExplorerUrl(result.explorerUrl || `https://explorer.solana.com/tx/${result.tx}?cluster=devnet`);
-        setVerificationHash(result.verificationHash);
-        
-        // Store verification hash in localStorage for later verification
-        localStorage.setItem(`vote-${election.selectedElection.id}`, JSON.stringify({
+      // Store verification hash in localStorage for later verification
+      localStorage.setItem(`vote-${election.selectedElection.id}`, JSON.stringify({
         electionId: election.selectedElection.id,
         electionName: election.selectedElection.name,
         verificationHash: result.verificationHash,
         votedAt: Date.now(),
-        candidateIndex: candidateIndex,
-        candidate: election.selectedElection.candidates[candidateIndex]
+        candidateIndex: useZKP ? null : candidateIndex, // Hide candidate for ZKP
+        candidate: useZKP ? 'Private (ZKP)' : election.selectedElection.candidates[candidateIndex],
+        isZKP: useZKP,
+        zkpEnabled: result.zkpEnabled
       }));
-        
-        setVoted(true);
-      } else {
-        setError(result.error || 'Failed to cast vote. Please try again.');
-      }
-    } catch (error) {
-      console.error('Error casting vote:', error);
-      setError('Failed to cast your vote. Please try again later.');
-    } finally {
-      setLoading(false);
+      
+      setVoted(true);
+    } else {
+      setError(result.error || 'Failed to cast vote. Please try again.');
     }
-  };
+  } catch (error) {
+    console.error('Error casting vote:', error);
+    setError('Failed to cast your vote. Please try again later.');
+  } finally {
+    setLoading(false);
+  }
+};
 
   if (!connected) {
     return <ConnectWallet />;

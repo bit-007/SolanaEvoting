@@ -2,6 +2,7 @@
 import { useState } from 'react';
 
 function VoteForm({ election, walletAddress, onVote }) {
+  const [useZKP, setUseZKP] = useState(false);
   const [selectedCandidate, setSelectedCandidate] = useState(null);
   const [error, setError] = useState(null);
 
@@ -13,8 +14,8 @@ function VoteForm({ election, walletAddress, onVote }) {
       return;
     }
     
-    // Call parent component's vote handler
-    onVote(selectedCandidate);
+    // Call parent component's vote handler with ZKP flag
+    onVote(selectedCandidate, useZKP);
   };
 
   return (
@@ -31,6 +32,34 @@ function VoteForm({ election, walletAddress, onVote }) {
               You are voting in <span className="font-medium">{election.electionName}</span> with your wallet address <span className="font-mono">{walletAddress.substring(0, 6)}...{walletAddress.substring(walletAddress.length - 6)}</span>
             </p>
           </div>
+        </div>
+      </div>
+
+      {/* ZKP Toggle Section */}
+      <div className="mb-6 p-4 bg-purple-50 rounded-lg border border-purple-200">
+        <label className="flex items-center">
+          <input
+            type="checkbox"
+            checked={useZKP}
+            onChange={(e) => setUseZKP(e.target.checked)}
+            className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+          />
+          <span className="ml-3 text-sm font-medium text-purple-900">
+            🔒 Use Zero-Knowledge Proof (Private Vote)
+          </span>
+        </label>
+        <div className="mt-2 text-xs text-purple-700">
+          {useZKP ? (
+            <div className="flex items-center">
+              <span className="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+              Your vote choice will be cryptographically hidden while remaining verifiable
+            </div>
+          ) : (
+            <div className="flex items-center">
+              <span className="inline-block w-2 h-2 bg-yellow-500 rounded-full mr-2"></span>
+              Standard vote - your choice will be visible on the blockchain
+            </div>
+          )}
         </div>
       </div>
 
@@ -81,7 +110,7 @@ function VoteForm({ election, walletAddress, onVote }) {
               type="submit"
               className="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
-              Cast Vote
+              {useZKP ? '🔒 Cast Private Vote' : 'Cast Vote'}
             </button>
           </div>
           <div className="ml-4 text-sm text-gray-500">
@@ -96,7 +125,11 @@ function VoteForm({ election, walletAddress, onVote }) {
           <li>Your vote is verified by multiple validators</li>
           <li>A cryptographic verification hash is generated as proof</li>
           <li>The vote is permanently recorded on the Solana blockchain</li>
-          <li>Your identity is kept private while maintaining verifiability</li>
+          {useZKP ? (
+            <li className="text-purple-600 font-medium">🔒 ZKP: Your vote choice is mathematically hidden</li>
+          ) : (
+            <li>Your identity is kept private while maintaining verifiability</li>
+          )}
         </ul>
       </div>
     </div>

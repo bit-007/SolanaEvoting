@@ -150,6 +150,30 @@
       "3JQ4apnaMcCfwdCazEspSXr1kzr69VQfzRA1U4vKc9V3": {
         "votedAt": 1748268066384,
         "verificationHash": "124a7c97a95ee47b67d1b17be37d11c51652d0d99af5abaec27f534606db2d83"
+      },
+      "uL368gdKJmHw1fDyC5PwBi27hxrNC4233Awqp6FVnc2": {
+        "votedAt": 1748269023226,
+        "verificationHash": "c7a12f47071c6d312406616adcc50c4f1db2b9afebed28fa8901f9d63c807ebe"
+      },
+      "3meCU2s4hgmUxyWEgDRHHj9EzXXwgAg5dFQ8uzxrbpeg": {
+        "votedAt": 1748271250477,
+        "verificationHash": "cc82d4cd4b1f44825d31152f266932afa07570b97f0e55904172847f7edec254"
+      },
+      "FPUchmWaa7znSJWzb7WGMeDd2tQLcLjH5b2YQ8p3A1B7": {
+        "votedAt": 1748274208825,
+        "verificationHash": "5ff07b63c3241301646a5b1a94ebe2daa37975aa1e4e9de143dd9ca14402013c"
+      },
+      "6SRvFvqKAtDxxtrjoU24vo7LpFkZPRKDwhm2TuC1oGHC": {
+        "votedAt": 1748274762801,
+        "verificationHash": "52059702b56f769273e6ad7e8d14bc5344be9b20f59f5538cb470399aeff93f8"
+      },
+      "3pZWaHGHf5uNNFFqfiNowkUGVdfRUNYrzCijNQHCjqrG": {
+        "votedAt": 1748275353741,
+        "verificationHash": "ee6a12a78af79a49dc70549f3c6949c7a6c1595aff85c4facde19262c33fbac1"
+      },
+      "V4tF1dfCxVTZrtsJh1YYpjddyrJsJnk3GftJzuAc9Cg": {
+        "votedAt": 1748275664716,
+        "verificationHash": "ef205c0684df31c3080dd16a6d85c09b35e47779c2187680bdb0c6666d937d0e"
       }
     }
   },
@@ -251,6 +275,27 @@
       "722WdXZmqVgbKt76ZLRKew3FM31ZzJVC8Layma7xFALn": {
         "votedAt": 1747539543410,
         "verificationHash": "a0103cf01228ce689e6488594635ab66e3fb233a1a899a4e64a8fa36f8f98d46"
+      }
+    }
+  },
+  "9aj52d7wEgTXj3GUXShc9csUtovV1F9MTLWWGdYPM2VH": {
+    "id": "9aj52d7wEgTXj3GUXShc9csUtovV1F9MTLWWGdYPM2VH",
+    "name": "nit",
+    "email": "nit@gmail.com",
+    "dateOfBirth": "1995-04-26",
+    "walletAddress": "9aj52d7wEgTXj3GUXShc9csUtovV1F9MTLWWGdYPM2VH",
+    "verificationKey": "3780b1c81908d35a260818bd716649f5ec2d692cfc7ac488cc1d41a4049a5fa7",
+    "registeredAt": 1748269163923,
+    "eligibilityChecked": true,
+    "isEligible": true,
+    "votingHistory": {
+      "uL368gdKJmHw1fDyC5PwBi27hxrNC4233Awqp6FVnc2": {
+        "votedAt": 1748269169398,
+        "verificationHash": "d5dcdc17c736f8328a553f361b9051b33e2fc5c1c39e4a813df0264bd7507ae2"
+      },
+      "V4tF1dfCxVTZrtsJh1YYpjddyrJsJnk3GftJzuAc9Cg": {
+        "votedAt": 1748275838219,
+        "verificationHash": "8667d1c0f4c3cd67e57c8a5609a536343bc8008fc73fd3002a1de16190be3d5a"
       }
     }
   }

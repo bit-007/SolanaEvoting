@@ -35,6 +35,12 @@ router.post('/dplt/recover', controllers.recoverDPLTNetwork);
 
 router.get('/admin/check/:walletAddress', controllers.checkAdminStatus);
 
+
+// Add these routes to your existing routes
+router.post('/vote/zkp', controllers.castVoteWithZKP);
+router.post('/vote/verify-zkp', controllers.verifyZKPVote);
+router.get('/results/zkp/:electionId', controllers.getZKPResults);
+
 // Debug routes
 if (process.env.NODE_ENV !== 'production') {
   router.get('/debug/voters', controllers.debugGetAllVoterRecords);
