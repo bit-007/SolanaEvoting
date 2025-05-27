@@ -247,16 +247,5 @@ Leveraging Solana's **Proof of History + Tower BFT**:
 3. **Blockchain Layer**: Immutable storage, global verification
 4. **Cryptographic Layer**: Digital signatures, zero-knowledge proofs
 
-### 🎯 Threat Model
-
-| Threat | Mitigation |
-|--------|------------|
-| **Vote Manipulation** | Cryptographic signatures + blockchain immutability |
-| **Double Voting** | Voter registry with unique wallet addresses |
-| **Admin Abuse** | Multi-signature requirements + audit trails |
-| **Network Attacks** | Byzantine fault tolerance + Solana security |
-| **Privacy Violations** | Zero-knowledge proofs + commitment schemes |
-| **Data Loss** | Distributed storage + blockchain backup |
-
 ---
 
